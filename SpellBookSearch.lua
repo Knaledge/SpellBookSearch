@@ -43,6 +43,29 @@ function Addon:updateSearchBox()
   end
 end
 
+local function GetFullSpellName(slot, bookType)
+  local spellName, subSpellName = GetSpellBookItemName(slot, bookType);
+  local isPassive = IsPassiveSpell(slot, bookType);
+
+  if (not subSpellName) then
+    subSpellName = ""
+  end
+
+  if ( subSpellName == "" ) then
+    if ( IsTalentSpell(slot, bookType) ) then
+      if ( isPassive ) then
+        subSpellName = TALENT_PASSIVE
+      else
+        subSpellName = TALENT
+      end
+    elseif ( isPassive ) then
+      subSpellName = SPELL_PASSIVE;
+    end
+  end
+
+  return spellName .. " " .. subSpellName
+end
+
 OldSpellBookFrame_Update = SpellBookFrame_Update
 
 function Addon:findSpells()
@@ -63,13 +86,15 @@ function Addon:findSpells()
   dbgprnt ("Indexing from" .. offset .. "up to " .. (numSlots+offset)
      .. " on " .. SpellBookFrame.bookType)
   for i=1,numSlots do
+
     local slotType, spellID = GetSpellBookItemInfo(i+offset, SpellBookFrame.bookType);
-    local spellName, subSpellName = GetSpellBookItemName(i+offset, SpellBookFrame.bookType);
+    local fullSpellName = GetFullSpellName(i+offset, SpellBookFrame.bookType);
     local searchText = Addon:getOrCreateSearchBox():GetText():gsub("%s+", "")
     local desc = GetSpellDescription(spellID)
+
     dbgprnt(spellName)
     if searchText == "" or
-      spellName:lower():match(searchText:lower()) then
+      fullSpellName:lower():match(searchText:lower()) then
       Addon.spells[offset+j] = i+offset;
       j = j + 1
     end
