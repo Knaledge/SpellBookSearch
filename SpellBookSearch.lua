@@ -23,9 +23,6 @@ function Addon:getOrCreateSearchBox()
   Addon.SearchBox:SetHeight(20) -- for your Texture
   Addon.SearchBox:SetPoint("BOTTOMLEFT", SpellBookFrame, "BOTTOMLEFT", 220, 32)
   Addon.SearchBox:Show()
-  Addon.SearchBox.Left:Hide()
-  Addon.SearchBox.Right:Hide()
-  Addon.SearchBox.Middle:Hide()
 
   Addon.SearchBox:HookScript("OnEnterPressed", UpdateSearch)
   Addon.SearchBox_OldOnTextChanged = Addon.SearchBox:GetScript("OnTextChanged")
