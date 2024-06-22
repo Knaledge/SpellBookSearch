@@ -71,7 +71,7 @@ OldSpellBookFrame_Update = SpellBookFrame_Update
 function Addon:findSpells()
   if (SpellBookFrame.bookType ~= BOOKTYPE_SPELL) then
     Addon.spells = {};
-    Addon.numSpells = j;
+    Addon.numSpells = 0;
     return
   end
 
