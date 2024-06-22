@@ -27,9 +27,9 @@ function Addon:getOrCreateSearchBox()
   Addon.SearchBox.Right:Hide()
   Addon.SearchBox.Middle:Hide()
 
-  Addon.SearchBox:SetScript("OnEnterPressed", UpdateSearch)
+  Addon.SearchBox:HookScript("OnEnterPressed", UpdateSearch)
   Addon.SearchBox_OldOnTextChanged = Addon.SearchBox:GetScript("OnTextChanged")
-  Addon.SearchBox:SetScript("OnTextChanged", SearchBox_OnTextChanged)
+  Addon.SearchBox:HookScript("OnTextChanged", SearchBox_OnTextChanged)
 
   return Addon.SearchBox;
 end
