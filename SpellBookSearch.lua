@@ -21,7 +21,7 @@ function Addon:getOrCreateSearchBox()
   Addon.SearchBox = CreateFrame("EditBox","SearchBox",SpellBookFrame,"SearchBoxTemplate")
   Addon.SearchBox:SetWidth(150) -- Set these to whatever height/width is needed
   Addon.SearchBox:SetHeight(20) -- for your Texture
-  Addon.SearchBox:SetPoint("TOPRIGHT", SpellBookFrame, "TOPRIGHT", -25, -1)
+  Addon.SearchBox:SetPoint("BOTTOMLEFT", SpellBookFrame, "BOTTOMLEFT", 220, 32)
   Addon.SearchBox:Show()
   Addon.SearchBox.Left:Hide()
   Addon.SearchBox.Right:Hide()
