@@ -1,8 +1,6 @@
-## Interface: 70100
+## Interface: 100207
 ## Title: SpellBookSearch
-## Notes: Add a search field to the spell book.
-## Author: Kerbaal
-## SavedVariables:
-## SavedVariablesPerCharacter:
+## Notes: Add a search field to the spell book
+## Author: Kerbaal | Loremacher (US-Thrall)
 
 SpellBookSearch.lua
